@@ -1,0 +1,33 @@
+
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Quarantine Budget Calculator</h1>
+
+<form action='/register' method='post'>
+        <input autocomplete='off' autofocus name='name' placeholder='Name' type='text'>
+        <select name='airport'>
+            <option disabled selected value= ''>Arrival Airport</option>
+                {% for airport in airports %}
+            <option value='{{ airport }}'>{{ airport }}</option>
+                {% endfor %}
+        </select>
+
+        <select name='destination'>
+            <option disabled selected value= ''>Destination</option>
+                {% for destination in destinations %}
+            <option value='{{ destination }}'>{{ destination }}</option>
+                {% endfor %}
+        </select>
+
+        <select name='transportation_method'>
+            <option disabled selected value= ''>Transportation Method</option>
+                {% for transportation_method in transportation_methods %}
+            <option value='{{ transportation_method }}'>{{ transportation_method }}</option>
+                {% endfor %}
+        </select>
+
+        <input type='submit' value='Submit'>
+</form>
+{% endblock %}
